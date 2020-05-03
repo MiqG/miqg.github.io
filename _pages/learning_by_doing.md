@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Learning by Doing"
+title: "LEARNING BY DOING"
 permalink: "/learning-by-doing/"
 author_profile: true
 header:

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "About"
+title: "ABOUT"
 permalink: "/about/"
 header:
   image: "/images/lab.JPG"

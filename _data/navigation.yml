@@ -1,11 +1,11 @@
 # main links
 main:
-  - title: "About"
-    url: /about/
-  - title: "Learning by Doing"
+  - title: "LEARNING BY DOING"
     url: /learning-by-doing/
-  - title: "Projects"
+  - title: "PROJECTS"
     url: /projects/
+  - title: "ABOUT"
+    url: /about/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

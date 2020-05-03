@@ -1,5 +1,5 @@
 ---
-title: "How to... Survival Analysis"
+title: "How to - Survival Analysis"
 date: 2020-05-02
 tags: [Data Analysis]
 header:
@@ -7,6 +7,8 @@ header:
 excerpt: "Survival Analysis, censoring, Kaplan-Meier, Cox, Logrank Test"
 mathjax: true
 ---
+
+hy
 
 ```python
 import numpy as np

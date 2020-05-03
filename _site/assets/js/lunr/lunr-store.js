@@ -11,8 +11,8 @@ var store = [{
         "url": "http://localhost:4000/test/",
         "teaser": null
       },{
-        "title": "How to... Survival Analysis",
-        "excerpt":"import numpy as np import pandas as pd import matplotlib.pyplot as plt from lifelines.statistics import logrank_test from lifelines.utils import concordance_index from lifelines import CoxPHFitter # generate (un)censored time data np.random.seed(123) n = 100 time = np.random.randint(100, size = n) events = np.random.choice([0,1], size = n) color_keys = ['blue','orange'] # line...","categories": [],
+        "title": "How to - Survival Analysis",
+        "excerpt":"hy import numpy as np import pandas as pd import matplotlib.pyplot as plt from lifelines.statistics import logrank_test from lifelines.utils import concordance_index from lifelines import CoxPHFitter # generate (un)censored time data np.random.seed(123) n = 100 time = np.random.randint(100, size = n) events = np.random.choice([0,1], size = n) color_keys = ['blue','orange'] #...","categories": [],
         "tags": ["Data Analysis"],
         "url": "http://localhost:4000/howto-survival_analysis/",
         "teaser": null
