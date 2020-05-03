@@ -1,0 +1,53 @@
+---
+title: "howto-inspect_available_drugs_drugbankR"
+output: 
+    html_document:
+        code_folding: hide
+        highlight: tango
+        number_sections: false
+        toc: true
+        toc_float:
+            collapsed: false
+            smooth_scroll: true
+        toc_depth: 3
+        theme: flatly
+---
+# installation
+```{r}
+# BiocManager::install("org.Hs.eg.db")
+# devtools::install_github("yduan004/drugbankR")
+```
+- [download DrugBank database](https://www.drugbank.ca/releases/latest), requires to sign in.
+
+# usage
+```{r}
+require(drugbankR)
+```
+
+```{r}
+dbFile = '../tmp/drugbank.xml'
+drugbank_dataframe = dbxml2df(xmlfile = dbFile, version = '5.1.6
+') # takes 10 min
+saveRDS(drugbank_dataframe, file = '../tmp/drugbank.rds') # save the object for the next time
+df2SQLite(dbdf = drugbank_dataframe, version="5.1.6")
+```
+I copied the SQLite files to scratch
+
+```{r}
+db_path = '~/scratch/databases/drugbank_5.1.6.db'
+ids = queryDB(type = 'getIDs', db_path = db_path)
+```
+
+```{r}
+# given drugbank ids, determine whether they are FDA approved
+queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", db_path=db_path) 
+```
+```{r}
+# given drugbank ids, get their targets
+queryDB(ids = c("DB00001","DB00002"),type = "getTargets", db_path=db_path) 
+```
+
+
+
+
+

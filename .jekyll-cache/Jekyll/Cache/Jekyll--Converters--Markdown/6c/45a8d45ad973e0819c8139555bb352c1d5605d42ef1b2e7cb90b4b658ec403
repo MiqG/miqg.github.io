@@ -1,0 +1,86 @@
+I"�<!--
+# Jekyll Group-By-Array 0.1.0
+# https://github.com/mushishi78/jekyll-group-by-array
+# © 2015 Max White <mushishi78@gmail.com>
+# MIT License
+-->
+
+<!-- Initialize -->
+
+<!-- Map -->
+
+<!-- Flatten -->
+
+<!-- Uniq -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- If not equal to previous then it must be unique as sorted -->
+
+<!-- Push to group_names -->
+
+<!-- group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<!-- Collect if contains -->
+
+<!-- Push to group_items -->
+
+<h2 id="bioinformatics-pipelines" class="archive__subtitle">Bioinformatics pipelines</h2>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/test/" rel="permalink">this is a title
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">testiing, how this, works
+</p>
+  </article>
+</div>
+
+<h2 id="data-analysis" class="archive__subtitle">Data Analysis</h2>
+
+<div class="list__item">
+  <article class="archive__item" itemscope="" itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/howto-survival_analysis/" rel="permalink">How to… Survival Analysis
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Survival Analysis, censoring, Kaplan-Meier,
+</p>
+  </article>
+</div>
+
+:ET

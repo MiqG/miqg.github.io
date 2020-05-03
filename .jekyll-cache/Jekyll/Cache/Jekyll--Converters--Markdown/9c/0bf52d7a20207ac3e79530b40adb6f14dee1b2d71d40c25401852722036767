@@ -1,0 +1,193 @@
+I"„M<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">lifelines.statistics</span> <span class="kn">import</span> <span class="n">logrank_test</span>
+<span class="kn">from</span> <span class="nn">lifelines.utils</span> <span class="kn">import</span> <span class="n">concordance_index</span>
+<span class="kn">from</span> <span class="nn">lifelines</span> <span class="kn">import</span> <span class="n">CoxPHFitter</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># generate (un)censored time data
+</span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">color_keys</span> <span class="o">=</span> <span class="p">[</span><span class="s">'blue'</span><span class="p">,</span><span class="s">'orange'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># line plots of censored data
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">color_keys</span><span class="p">[</span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">if</span> <span class="n">censoring</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color_keys</span><span class="p">[</span><span class="n">events</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="n">marker</span><span class="o">=</span><span class="s">'o'</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="http://localhost:4000/2020-05-02-howto-survival_analysis_files/2020-05-02-howto-survival_analysis_2_0.png" alt="png" /></p>
+
+<h2 id="survival-functions">Survival Functions</h2>
+<ul>
+  <li>Survival Probability</li>
+</ul>
+
+\[S(t) = \prod_{i=0}^{t} 1-Pr(T=i| T \geq i) = \prod_{i=0}^{t} 1- \frac{d_i}{n_i}\]
+
+<ul>
+  <li>Cummulative hazard</li>
+</ul>
+
+\[\Lambda(t) = \sum_{i=0} \frac{d_i}{n_i}\]
+
+<ul>
+  <li>Hazard</li>
+</ul>
+
+\[\lambda (t) = -\frac{S'(t)}{S(t)}\]
+
+<ul>
+  <li>Equivalences</li>
+</ul>
+
+\[\Lambda(t) = -log S(t)\]
+
+\[S(t) = exp(-\Lambda(t))\]
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">compute_survival_functions</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="n">idx_time</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="c1"># sort by time
+</span>    <span class="n">sorted_censoring</span> <span class="o">=</span> <span class="n">censoring</span><span class="p">[</span><span class="n">idx_time</span><span class="p">]</span>
+    <span class="n">sorted_time</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">idx_time</span><span class="p">]</span>
+    <span class="n">cumsum_died</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sorted_censoring</span><span class="p">)</span>
+    <span class="n">cumsum_alive</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_censoring</span><span class="p">)</span><span class="o">-</span><span class="n">cumsum_died</span>
+
+    <span class="c1"># compute survival functions
+</span>    <span class="n">cum_hazard</span> <span class="o">=</span> <span class="n">cumsum_died</span> <span class="o">/</span> <span class="n">cumsum_alive</span>
+    <span class="n">surv_prob</span>  <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">cum_hazard</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="p">{</span><span class="s">'cum_hazard'</span><span class="p">:</span> <span class="n">cum_hazard</span><span class="p">,</span> <span class="s">'surv_prob'</span><span class="p">:</span> <span class="n">surv_prob</span><span class="p">}</span>
+
+<span class="n">surv_funcs</span> <span class="o">=</span> <span class="n">compute_survival_functions</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">surv_funcs</span><span class="p">[</span><span class="s">'cum_hazard'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'hazard'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$Time$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">r'$\</span><span class="err">L</span><span class="s">ambda(t)$'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">time</span><span class="p">),</span> <span class="n">surv_funcs</span><span class="p">[</span><span class="s">'surv_prob'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'survival'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$Time$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">r'$S(t)$'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="2020-05-02-howto-survival_analysis_files/2020-05-02-howto-survival_analysis_5_0.png" alt="png" /></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># split data into two groups
+</span><span class="n">grouping</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">([</span><span class="s">'A'</span><span class="p">,</span><span class="s">'B'</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">))</span>
+<span class="n">timeA</span><span class="p">,</span> <span class="n">eventsA</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">grouping</span><span class="o">==</span><span class="s">'A'</span><span class="p">],</span> <span class="n">events</span><span class="p">[</span><span class="n">grouping</span><span class="o">==</span><span class="s">'A'</span><span class="p">]</span> 
+<span class="n">timeB</span><span class="p">,</span> <span class="n">eventsB</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="n">grouping</span><span class="o">==</span><span class="s">'B'</span><span class="p">],</span> <span class="n">events</span><span class="p">[</span><span class="n">grouping</span><span class="o">==</span><span class="s">'B'</span><span class="p">]</span>
+
+<span class="c1"># compute survival functions
+</span><span class="n">surv_funcsA</span> <span class="o">=</span> <span class="n">compute_survival_functions</span><span class="p">(</span><span class="n">eventsA</span><span class="p">,</span> <span class="n">timeA</span><span class="p">)</span>
+<span class="n">surv_funcsB</span> <span class="o">=</span> <span class="n">compute_survival_functions</span><span class="p">(</span><span class="n">eventsB</span><span class="p">,</span> <span class="n">timeB</span><span class="p">)</span>
+
+<span class="c1"># Logrank test (or Mantel-Cox test): 
+# whether probability of an event at any point is different
+</span><span class="n">lr</span> <span class="o">=</span> <span class="n">logrank_test</span><span class="p">(</span><span class="n">durations_A</span><span class="o">=</span><span class="n">timeA</span><span class="p">,</span> <span class="n">durations_B</span><span class="o">=</span><span class="n">timeB</span><span class="p">,</span>
+                  <span class="n">event_observed_A</span><span class="o">=</span><span class="n">eventsA</span><span class="p">,</span> <span class="n">event_observed_B</span><span class="o">=</span><span class="n">eventsB</span><span class="p">)</span>
+<span class="n">lr</span><span class="p">.</span><span class="n">print_summary</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <tbody>
+    <tr>
+      <th>t_0</th>
+      <td>-1</td>
+    </tr>
+    <tr>
+      <th>null_distribution</th>
+      <td>chi squared</td>
+    </tr>
+    <tr>
+      <th>degrees_of_freedom</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>test_name</th>
+      <td>logrank_test</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>test_statistic</th>
+      <th>p</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.61</td>
+      <td>0.20</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">timeA</span><span class="p">),</span> <span class="n">surv_funcsA</span><span class="p">[</span><span class="s">'cum_hazard'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">timeB</span><span class="p">),</span> <span class="n">surv_funcsB</span><span class="p">[</span><span class="s">'cum_hazard'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'hazard | p-value='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">lr</span><span class="p">.</span><span class="n">p_value</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$Time$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">r'$\</span><span class="err">L</span><span class="s">ambda(t)$'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">timeA</span><span class="p">),</span> <span class="n">surv_funcsA</span><span class="p">[</span><span class="s">'surv_prob'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">timeB</span><span class="p">),</span> <span class="n">surv_funcsB</span><span class="p">[</span><span class="s">'surv_prob'</span><span class="p">])</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">'survival | p-value='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">round</span><span class="p">(</span><span class="n">lr</span><span class="p">.</span><span class="n">p_value</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">r'$Time$'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">r'$S(t)$'</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="2020-05-02-howto-survival_analysis_files/2020-05-02-howto-survival_analysis_7_0.png" alt="png" /></p>
+
+<h2 id="compute-concordance-index-to-make-performance-assessment-of-a-model">compute concordance index to make performance assessment of a model</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'T'</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s">'E'</span><span class="p">:</span> <span class="n">events</span><span class="p">})</span>
+<span class="n">cph</span> <span class="o">=</span> <span class="n">CoxPHFitter</span><span class="p">().</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s">'T'</span><span class="p">,</span> <span class="s">'E'</span><span class="p">)</span>
+<span class="n">concordance_index</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">'T'</span><span class="p">],</span> <span class="o">-</span> <span class="n">cph</span><span class="p">.</span><span class="n">predict_partial_hazard</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="n">df</span><span class="p">[</span><span class="s">'E'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.5
+</code></pre></div></div>
+
+:ET
