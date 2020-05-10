@@ -10,11 +10,11 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about/">About</a>
+              <a href="/learning-by-doing/">LEARNING BY DOING</a>
             </li><li class="masthead__menu-item">
-              <a href="/learning-by-doing/">Learning by Doing</a>
+              <a href="/projects/">PROJECTS</a>
             </li><li class="masthead__menu-item">
-              <a href="/projects/">Projects</a>
+              <a href="/about/">ABOUT</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
