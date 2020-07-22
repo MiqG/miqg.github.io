@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/testtt/</loc>
-<lastmod>2020-03-06T00:00:00+01:00</lastmod>
+<loc>http://localhost:4000/eda_ema/</loc>
+<lastmod>2020-05-21T00:00:00+02:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/test/</loc>
-<lastmod>2020-03-20T00:00:00+01:00</lastmod>
-</url>
-<url>
-<loc>http://localhost:4000/howto-survival_analysis/</loc>
-<lastmod>2020-05-02T00:00:00+02:00</lastmod>
+<loc>http://localhost:4000/temp/2020-05-04-blog_post/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/datasets/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
@@ -23,5 +21,9 @@
 </url>
 <url>
 <loc>http://localhost:4000/projects/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/temp/network_red.pdf</loc>
+<lastmod>2020-07-22T10:08:27+02:00</lastmod>
 </url>
 </urlset>
