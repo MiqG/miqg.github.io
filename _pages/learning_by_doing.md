@@ -4,7 +4,7 @@ title: "LEARNING BY DOING"
 permalink: "/learning-by-doing/"
 author_profile: true
 header:
-  image: "/images/lab.JPG"
+  image: ""
 ---
 
 {% include group-by-array collection=site.posts field="tags" %}
