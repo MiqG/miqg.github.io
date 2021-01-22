@@ -1,6 +1,12 @@
-# "Structure up your data science project!"
+---
+title: "Structure up your data science project!"
+date: 2021-01-22
+tags: [Data Analysis]
+excerpt: "data science, project structure, workflows, reproducibility, modularity"
+mathjax: true
+---
 
-## Why should I think about my project structure at all?
+# Why should I think about my project structure at all?
 
 I spent a lot of time trying to learn and implement the “best coding practices”, but I have never really paid attention to the “best project structure practices”.
 
@@ -14,7 +20,7 @@ Spoiler alert: I haven’t found the ideal project structure yet, but after scra
 So far, at least having a clear project structure from the start is helping me a lot in avoiding the blank page syndrome.
 
 
-## The principles: naming and modularity
+# The principles: naming and modularity
 To create this project template, I tried to follow two principles that the literature in best coding practices mentions a lot: clear names and modularity. 
 
 When naming directories, their subdirectories, and files, one should try to use words that are both meaningful and that complement each other as one reads the full path of a file, for instance.
@@ -23,12 +29,12 @@ On the other hand, one should try to structure the project forcing it to grow mo
 In those cases where an experiment’s result is the input of another experiment, the child experiment may better be introduced as a part of its parent experiment to avoid this dependency.
 
 
-## The essential tools for reproducibility
+# The essential tools for reproducibility
 As I mentioned, I would like my project to be simple and reproducible. Luckily, these properties align with the interest of a lot of people in the community, who have developed plenty of different tools on that matter. 
 Among them, I find workflow and environment managers extremely useful giving us the power to re-run all our analyses automatically within the same environment. My favourite ones are the python-based workflow and environment managers: snakemake and conda.
 
 
-## The basic workflow
+# The basic workflow
 This is an example of the basic workflow using this project structure template:
 
 <p align="center">
@@ -42,8 +48,8 @@ This is an example of the basic workflow using this project structure template:
 5. Inspect and explore results creating jupyter notebooks at `reports/notebooks/` that can be rendered into static web pages with [`jupyter-book`](https://jupyterbook.org/intro.html). Structure your project's book by modifying `reports/_toc.yml`.
 
 
-## The structure in detail
-### `data/`
+# The structure in detail
+## `data/`
 ```shell
 data
 ├── prep
@@ -56,7 +62,7 @@ Here we will place all the data needed for our project to be accessed easily fro
 - in `references` we store useful “ground-truth files” or lookup tables such as, in my case, genome annotations.
 
 
-### `envs/`
+## `envs/`
 ```shell
 envs
 └── main.yml
@@ -64,7 +70,7 @@ envs
 Working with environment managers such as conda facilitates the reproducibility of most projects seamlessly. In this directory, we place the “main.yml” project environment file containing the packages used throughout the project. We can add additional environments that certain tools might require; which can be easily activated through snakemake as we run our workflows.
 
 
-### `reports/`
+## `reports/`
 ```shell
 reports/
 ├── _config.yml
@@ -81,7 +87,7 @@ One of the most important and fun parts of data science is communication. For th
 In this case, I think [jupyter-book](https://jupyterbook.org/intro.html) is a good friend because it allows us to create a simple static webpage that combines all our notebooks and can be published as a GitHub Pages like [this one](https://miqg.github.io/project_template/intro.html).
 
 
-### `workflows/`
+## `workflows/`
 ```shell
 workflows/
 ├── analyses
@@ -114,7 +120,7 @@ Our workflow-manager script -here, the “snakefile”- contains the rules to ca
 Finally, the `workflows/analyses/new_experiment/scripts/` subdirectory contains those scripts that carry out a specific step of that “new_experiment”.
 
 
-### `results/`
+## `results/`
 ```shell
 results
 ├── new_experiment
@@ -127,7 +133,7 @@ results
 Here we will place all the outputs from our experiments. The subdirectories in `results` should have the same name of the experiment and, in general, may contain files and plots that can be easily read from our reports.
 
 
-### `src/`
+## `src/`
 ```shell
 src
 └── python
@@ -138,8 +144,8 @@ src
 To minimize the errors that could come from copy-pasting functions or scripts across different experiments, in this directory we will create project-wide modules that can be called from anywhere in the project.
 In this case, I think that one of the essential modules to have is “config.py”, which will read our top-level “config.yml” to access the variables from anywhere in the project.
 
-## The conclusions, so far
 
+# The conclusions, so far
 In my empirical opinion, working with this project structure is especially helping me to focus in one thing at a time. Although it takes more time to build every step of the project I feel like these steps are solid and allow me, in the long term, to save time from all the refactoring, bug fixes, and error correction I had to do with my previous "chaotic" approaches. 
 
 If you are reading this, you probably are interested in the topic and share the struggle in finding the project structure that best adapts to your needs. 
@@ -147,7 +153,7 @@ So, please, feel free to reach out somehow and, even better, to submit a PR and 
 
 
 
-## References
+# References
 - Buffalo, V. (2015). Bioinformatics data skills: Reproducible and robust research with open source tools. " O'Reilly Media, Inc.". [link](https://www.oreilly.com/library/view/bioinformatics-data-skills/9781449367480/)
 - Noble WS (2009) A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5(7): e1000424. [https://doi.org/10.1371/journal.pcbi.1000424](https://doi.org/10.1371/journal.pcbi.1000424)
 - [Eric Ma - Principled Data Science Workflows](https://www.youtube.com/watch?v=Dx2vG6qmtPs&ab_channel=PyData)
