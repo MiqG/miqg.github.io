@@ -1,7 +1,0 @@
----
-layout: single
-title: "ABOUT"
-permalink: "/about/"
----
-
-Hey there! I am a biotechnologist specialized in systems biology passionate about exploiting data for better understanding of our surroundings. I created this blog with the intention of sharing and keeping track of how I solved certain problems.

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Miquel Anglada Girotto</title>
+        <link rel="icon" href="../images/logo.svg">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.0/css/all.css'>
+        <!-- <link rel="stylesheet" href="css/reset.css"> -->
+        <!-- <link rel="stylesheet" href="css/debug.css"> -->
+        <link rel="stylesheet" href="../css/style.css">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap">
+
+        <style>
+            
+        </style>
+    </head>
+    <body>
+
+        <!-- Navigation -->
+        <header>
+            <div class="logo">
+                <a href="index.html"> 
+                    <img src="../images/logo.svg" alt="logo">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <nav  class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../index.html#home" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../index.html#services" class="nav__link">What I do</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../index.html#about" class="nav__link">About me</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../index.html#my-work" class="nav__link">My Work</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Project -->
+        <section class="intro">
+            <h1 class="section__title section__title--intro">
+                “Structure up your data science project!”
+            </h1>
+            <p class="section__subtitle section__subtitle--intro">A scalable and reproducible template to structure your projects</p>
+        </section>
+
+        <div class="portfolio-item-individual">
+            <h3>Why should I think about my project structure at all?</h3>
+            <p>I spent a lot of time trying to learn and implement the “best coding practices”, but I have never really paid attention to the “best project structure practices”.</p>
+
+            <p>When carrying out courses or small tasks, I would never think about how I should structure the project; I would just try to tackle the question right away mixing inputs, outputs, scripts, and log files altogether.</p>
+
+            <p>However, as projects started growing and new questions arose from those improvised analyses I found myself constantly having to rewrite a lot of code to make sense of the data, and feeling unsure of whether if someone asked me to re-run the analysis I would be able to do so and of getting the same results. Indeed, during my first internship, I felt embarrassed to hand over to a colleague a project constructed following my “best chaotic practices”. I realized I needed to change this approach.</p>
+
+            <p>Ideally, I wanted to find the simplest project structure —and its corresponding workflow— that facilitates reproducibility and scalability. As I started googling, I noted that there were fewer resources than expected on the art of structuring data science projects. Especially applied to bioinformatics or computational biology, my main fields of interest.</p>
+
+            <p>Spoiler alert: I haven’t found the ideal project structure yet, but after scraping the web for more information and implementing some approaches myself, I have created a project template as a GitHub repository that so far is doing the job for me, and I hope it works for you too. So far, at least having a clear project structure from the start is helping me a lot in avoiding the blank page syndrome and in keeping things in order.</p>
+
+            <h3>The principles: naming and modularity</h3>
+            <p>To create this project template, I tried to follow two principles that the literature in best coding practices mentions a lot: clear names and modularity.</p>
+
+            <p>When naming directories, their subdirectories, and files, one should try to use words that are both meaningful and that complement each other as one reads the full path of a file, for instance.</p>
+
+            <p>On the other hand, one should try to structure the project forcing it to grow modularly. Probably influenced by my past in the wet lab, I like to think of a project’s data analysis part as a series of experiments that try to answer a hypothesis. I try to make each experiment answer a specific sub-question so that if we don’t need one experiment we can just delete the directory containing it, and this action will not affect the rest of the experiments. In those cases where an experiment’s result is the input of another experiment, the child experiment may better be introduced as a part of its parent experiment to avoid this dependency.</p>
+
+            <h3>The essential tools for reproducibility</h3>
+            <p>As I mentioned, I would like my project to be simple and reproducible. Luckily, these properties align with the interest of a lot of people in the community, who have developed plenty of different tools on that matter. Among them, I find workflow and environment managers extremely useful giving us the power to re-run all our analyses automatically within the same environment. My favorite ones are the python-based workflow and environment managers: snakemake and conda.</p>
+
+            <h3>The basic workflow</h3>
+            <p>This is an example of the basic workflow using this project structure template:</p>
+            <ol>
+                <li>
+                    Modify config.yml to your taste adding variables that could be useful project-wide.
+                </li>
+                <li>
+                    Create the workflows to download and preprocess your project’s data at workflows/download/ and workflows/preprocess, respectively. Make sure to distinguish between code that is only used specifically for that part of the project -place it in your workflow’s scripts/ subdirectory-, or code that can be used project-wide -place it in the project’s modules in src/ and call the functions in your workflow-.
+                </li>
+                <li>
+                    Now, you can analyze your data creating different experiments as subdirectories of workflows/analyses that will get inputs from data/ and will output at results/your_experiment_name/.            
+                </li>
+                <li>
+                    Commit your work, and consider adding README files.
+                </li>
+                <li>
+                    Inspect and explore results creating jupyter notebooks at reports/notebooks/ that can be rendered into static web pages with jupyter-book. Structure your project’s book by modifying reports/_toc.yml.
+                </li>
+            </ol>
+
+            <h3>The structure in detail</h3>
+            <p>
+                `data/`
+            </p>
+            <p>
+                data
+                ├── prep
+                ├── raw
+                └── references
+            </p>
+            <p>Here we will place all the data needed for our project to be accessed easily from anywhere. The subdirectory names are self-explanatory:
+            in raw/ we store data as it was produced experimentally or downloaded;
+            in references we store useful “ground-truth files” or lookup tables such as, in my case, genome annotations.</p>
+
+            <p>`envs/`</p>
+            <p>
+                envs
+                └── main.yml
+            </p>
+            <p>Working with environment managers such as conda facilitates the reproducibility of most projects seamlessly. In this directory, we place the “main.yml” project environment file containing the packages used throughout the project. We can add additional environments that certain tools might require; which can be easily activated through snakemake as we run our workflows.</p>
+
+            <p>`reports/`</p>
+            <p>reports/
+            ├── _config.yml
+            ├── images
+            │   └── logo.png
+            ├── notebooks
+            │   ├── example_notebook.md
+            │   ├── intro.md
+            │   └── README.md
+            ├── README.md
+            └── _toc.yml</p>
+            <p>One of the most important and fun parts of data science is communication. For this reason, I think it is essential that every project generates a series of reports with which one tries to answer questions using the results from our analyses. In this case, I think jupyter-book is a good friend because it allows us to create a simple static webpage that combines all our notebooks and can be published as a GitHub Pages like this one.</p>
+            
+            <p>`workflows/`</p>
+            <p>workflows/
+            ├── analyses
+            │   └── new_experiment
+            │       ├── README.md
+            │       ├── run_all.sh
+            │       ├── scripts
+            │       │   └── workflow_step.py
+            │       └── snakefile
+            ├── download
+            │   ├── README.md
+            │   ├── run_all.sh
+            │   ├── scripts
+            │   │   └── workflow_step.py
+            │   └── snakefile
+            ├── preprocess
+            │   ├── README.md
+            │   ├── run_all.sh
+            │   ├── scripts
+            │   │   └── workflow_step.py
+            │   └── snakefile
+            └── README.md</p>
+            <p>This is the directory where we will spend most of our time during the project. Here, we will create our “experiments” that try to answer a specific question.
+
+            Every experiment within workflows/analyses/ uses the files in data/ as inputs and saves the outputs into results/. Exceptionally, at the beginning of the project, the workflows in workflows/download and workflows/preprocess will output into data/raw and data/references the former, and into data/prep, the latter.
+
+            Then, the experiments can be executed via bash run_all.sh, a simple script that will tell your favorite workflow manager to run the experiment with some general parameters. Our workflow-manager script -here, the “snakefile”- contains the rules to carry out every step of our analysis. Finally, the workflows/analyses/new_experiment/scripts/ subdirectory contains those scripts that carry out a specific step of that “new_experiment”.</p>
+
+
+            <p>`results/`</p>
+            <p>results
+            ├── new_experiment
+            │   ├── files
+            │   │   └── output_example.tsv
+            │   └── plots
+            │       └── output_example.pdf
+            └── README.md</p>
+            <p>Here we will place all the outputs from our experiments. The subdirectories in results should have the same name as the experiment and, in general, may contain files and plots that can be easily read from our reports.</p>
+
+            <p>`src/`</p>
+            <p>src
+            └── python
+                ├── setup.py
+                └── your_project_name
+                    └── config.py</p>
+            <p>To minimize the errors that could come from copy-pasting functions or scripts across different experiments, in this directory we will create project-wide modules that can be called from anywhere in the project. In this case, I think that one of the essential modules to have is “config.py”, which will read our top-level “config.yml” to access the variables from anywhere in the project.</p>
+
+            <h3>The conclusions, so far</h3>
+            <p>In my empirical opinion, working with this project structure is especially helping me to focus on one thing at a time. Although it takes more time to build every step of the project I feel like these steps are solid and allow me, in the long term, to save time from all the refactoring, bug fixes, and error correction I had to do with my previous “chaotic” approaches.</p>
+
+            <p>If you are reading this, you probably are interested in the topic and share the struggle in finding the project structure that best adapts to your needs. So, please, feel free to reach out somehow and, even better, to submit a PR and improve the project_template!</p>
+
+
+            <h3>References</h3>
+            <ul>
+                <li>Buffalo, V. (2015). Bioinformatics data skills: Reproducible and robust research with open source tools. “ O’Reilly Media, Inc.”. link</li>
+                <li>Noble WS (2009) A Quick Guide to Organizing Computational Biology Projects. PLoS Comput Biol 5(7): e1000424. https://doi.org/10.1371/journal.pcbi.1000424</li>
+                <li>Eric Ma — Principled Data Science Workflows</li>
+                <li>Pat Schloss — Riffomonas Project</li>
+            </ul>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="mailto:miquelangladagirotto@gmail.com" class="footer-link">miquelangladagirotto@gmail.com</a>
+            <ul class="social-list">
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.youtube.com/c/miquelangladagirotto">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://www.instagram.com/m1quelag/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://twitter.com/m1quelag">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://github.com/MiqG">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="social-list__item">
+                    <a class="social-list__link" href="https://orcid.org/0000-0003-1885-8649">
+                        <i class="fab fa-orcid"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+
+        <script src="../js/index.js"></script>
+
+    </body>
+</html>
