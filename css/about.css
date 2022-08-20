@@ -1,0 +1,87 @@
+/* About */
+/*  - Intro */
+.about-profile {
+
+}
+
+.about-img {
+    width: 40%;
+    max-width: 400px;
+    border-radius: 100%;
+    box-shadow: var(--bs);
+}
+
+.about-info {
+    padding: 2rem 0;
+}
+
+.about-info ul li{
+    padding: .4rem 0;
+    display: flex;
+    align-items: center;
+    color: var(--clr-dark);
+}
+
+.about-info ul li i{
+    padding-right: 1rem;
+    font-size: 1.1rem;
+}
+
+/*  - Content */
+.about-content {
+    width: 80%;
+    margin:0 auto;
+}
+
+.about-summary p{
+    font-size: var(--fs-body);
+}
+
+.icon {
+    padding-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.timeline ul {
+    margin: 0; 
+}
+
+.institution-data {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+}
+
+.institution-data img {
+    max-width: 125px
+}
+
+.about-experience .timeline {
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+.about-experience .timeline-left {
+    margin-bottom: 2rem;
+}
+
+.about-experience .timeline-right {
+    text-align: right;
+}
+
+.about-education .timeline {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.about-education .timeline-left {}
+
+.about-education .timeline-right {
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.about-footer {
+    display: grid;
+    grid-template-columns: 60% 40%;
+}

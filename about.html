@@ -8,17 +8,18 @@
         <link rel="icon" href="images/logo.svg">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.0/css/all.css'>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v6.1.2/css/all.css'>
         <!-- <link rel="stylesheet" href="css/reset.css"> -->
         <!-- <link rel="stylesheet" href="css/debug.css"> -->
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/about.css">
         
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,400,900&display=swap">
+        <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@400;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
 
-        <style>
-            
-        </style>
+        <style></style>
     </head>
     <body>
 
@@ -51,191 +52,277 @@
         </header>
 
         <!-- Introduction -->
-        <section class="intro" id="home">
-            <h1 class="section__title section__title--intro">
-                <strong>Miquel</strong> Anglada Girotto
-            </h1>
-            <p class="section__subtitle section__subtitle--intro">
-                biotechnologist specialized in systems biology
-            </p>
+        <section class="about-intro" id="home">
+            <div class="about-profile">
+                <h1 class="section__title section__title--intro">
+                    <strong>Miquel</strong> Anglada Girotto
+                </h1>
+                <p class="section__subtitle section__subtitle--intro">
+                    biotechnologist specialized in systems biology
+                </p>
 
-            <img src="images/me-profile.jpg" alt="profile picture" class="intro__img">
-
-            <ul>
-                <li>
-                    Barcelona, Spain
-                </li>
-                <li>
-                    06.03.1995
-                </li>
-                <li>
-                    0000-0003-1885-8649
-                </li>
-                <li>
-                    miquel.anglada@crg.eu
-                </li>
-                <li>
-                    miquelangladagirotto@gmail.com
-                </li>
-            </ul>
+                <img class="about-img" src="images/me-profile.jpg" alt="profile picture">
+            </div>
+            <div class="about-info">
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Barcelona, Spain
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-cake-candles"></i>
+                        06.03.1995
+                    </li>
+                    <li>
+                        <i class="fab fa-orcid"></i>
+                        0000-0003-1885-8649
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-briefcase"></i>
+                        miquel.anglada@crg.eu
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-inbox"></i>
+                        miquelangladagirotto@gmail.com
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-globe"></i>
+                        www.miqg.github.io
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/c/miquelangladagirotto">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/m1quelag/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        @m1quelag
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/m1quelag">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        @m1quelag
+                    </li>
+                    <li>
+                        <a href="https://github.com/MiqG">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        MiqG
+                    </li>
+                </ul>
+            </div>
         </section>
-
-        <section>
-            <h2>
-                SUMMARY
-            </h2>
-            <p>
-               Passionate biotechnologist with 5+ years of experience between academia and the pharmaceutical industry. I am working in the fields of bioinformatics and data science to bridge the gaps between research and industrial needs by combining wet-lab and computational skills. 
-            </p>
-        </section>
-
-        <section>
-            <h2>
-                EXPERIENCE
-            </h2>
-            <h3>
-                Academia
-            </h3>
-            <p>
-                <br><strong>Centre for Genomic Regulation (CRG) | Pompeu Fabra University</strong></br>
-                <br>09.2020 - 09.2024</br>
-                <br><strong>Serrano Group - Design of Biological Systems</strong></br>
+        <section class="about-content">
+            <div class="about-summary">
+                <h2>
+                    Summary
+                </h2>
+                <p>
+                   Passionate biotechnologist with 5+ years of experience between academia and the pharmaceutical industry. I am working in the fields of bioinformatics and data science to bridge the gaps between research and industrial needs by combining wet-lab and computational skills. 
+                </p>    
+            </div>
+            <div class="about-experience">
+                <h2>Experience</h2>
+                <div class="about-experience_academia">
+                    <h3>
+                        <i class="fa-solid fa-graduation-cap icon"></i>Academia
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-left">
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-crg.png" alt="logo CRG">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>Centre for Genomic Regulation (CRG) | Pompeu Fabra University</strong></br>
+                                    <br>09.2020 - 09.2024</br>
+                                </div>
+                            </div>
+                            <br><strong>Serrano Group - Design of Biological Systems</strong></br>
+                            <ul>
+                                <li>
+                                    A systems-biology view of alternative splicing to treat cancer.
+                                </li>
+                                <li>
+                                    Software development for omic data analysis.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="timeline-right">
+                            <i>Barcelona, Spain</i>
+                        </div>
+                        <div class="timeline-left">
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-ethz.png" alt="logo ETHZ">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>ETH Zürich</strong>, MSc semester projects and thesis</br>
+                                    <br>09.2017 - 09.2019</br>
+                                </div>
+                            </div>
+                                <br><strong>Christen Group - Synthetic Genomics</strong></br>
+                                <ul>
+                                    <li>
+                                        Engineering CRISPR/Cas9 for multiplexed genome editing.
+                                    </li>
+                                </ul>
+                                <br><strong>Sauer/Zampieri Group - Metabolomics</strong></br>
+                                <ul>
+                                    <li>
+                                        Computational inference of antimicrobial mode-of-action through comparative metabolomics.
+                                    </li>
+                                </ul>
+                        </div>
+                        <div class="timeline-right">
+                            <i>Zürich, Switzerland</i>
+                        </div>
+                        <div class="timeline-left">
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-ub.jpg" alt="logo UB">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>University of Barcelona</strong>, BSc Thesis</br>
+                                    <br>09.2016 - 07.2017</br>
+                                </div>
+                            </div>
+                            <br><strong>Grifoll Group - Biodegradation and Bioremediation</strong></br>
+                            <ul>
+                                <li>
+                                    Discovery of new bacterial communities that degrade creosote compounds.
+                                </li>
+                            </ul>                        
+                        </div>
+                        <div class="timeline-right">
+                            <i>Barcelona, Spain</i>
+                        </div>
+                        <div class="timeline-left">
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-uzh.jpg" alt="logo UZH">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>University Zürich</strong>, BUSS Summer REsearch Scholarship</br>
+                                    <br>07.2016 - 08.2016</br>
+                                </div>
+                            </div>
+                            <br><strong>Bodenmiller Group - Single-cell Systems Biology of Cancer</strong></br>
+                            <ul>
+                                <li>
+                                    Genetic engineering to study metastasis in breast cancer through single-cell proteomics.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="timeline-right">
+                            <i>Zürich, Switzerland</i>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-experience_industry">
+                    <h3>
+                        <i class="fa-solid fa-industry icon"></i>Industry
+                    </h3>
+                    <div class="timeline">
+                        <div class="timeline-left">
+                            <br><strong>Genome Informatics - Bioinformatician</strong></br>
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-fgcz.png" alt="logo FGCZ">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>Functional Genomics Center Zürich</strong></br>
+                                    <br>12.2019 - 05.2020</br>
+                                </div>
+                            </div>
+                            On-demand data analysis and development of bioinformatics open-source packages.
+                        </div>
+                        <div class="timeline-right">
+                            <i>Zürich, Switzerland</i>
+                        </div>
+                        <div class="timeline-left">
+                            <br><strong>Corporate Regulatory Affairs - Data Management</strong></br>
+                            <div class="institution-data">
+                                <div class="institution-logo">
+                                    <img src="images/logo-helsinn.png" alt="logo FGCZ">
+                                </div>
+                                <div class="institution-info">
+                                    <br><strong>Helsinn Healthcare S.A.</strong></br>
+                                    <br>09.2018 - 02.2019</br>
+                                </div>
+                            </div>
+                            Supporting the Regulatory Affairs department in data management of (pre)clinical documentation creating tailored software.
+                        </div>
+                        <div class="timeline-right">
+                            <i>Lugano, Switzerland</i>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="about-education">
+                <h2>
+                    Education
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-left">
+                        09.2020 - 09.2024
+                    </div>
+                    <div class="timeline-right">
+                        <br><strong>PhD Biomedicine</strong></br>
+                        <br><strong>Centre for Genomic Regulation (CRG)</strong></br>
+                        <br><strong>Pompeu Fabra University</strong> - Barcelona, Spain</br>
+                        <br>Supervision: Luis Serrano</br>
+                        <br>CRG PhD Fellowship</br>
+                    </div>
+                    <div class="timeline-left">
+                        09.2017 - 06.2020
+                    </div>
+                    <div class="timeline-right">
+                        <br><strong>Biology MSc with a major in Systems Biology</strong> (90 ECTS)</br>
+                        <br><strong>ETH Zürich</strong> - Zürich, Switzerland</br>
+                    </div>
+                    <div class="timeline-left">
+                        09.2013 - 09.2017
+                    </div>
+                    <div class="timeline-right">
+                        <br><strong>Biotechnology BSc with a minor in Molecular Biotechnology</strong> (240 ECTS)</br>
+                        <br><strong>University of Barcelona</strong> - Barcelona, Spain</br>
+                    </div>
+                    <div class="timeline-left">
+                        09.2011 - 06.2013
+                    </div>
+                    <div class="timeline-right">
+                        <br><strong>Baccalaureate of Science</strong></br>
+                        <br><strong>I.E.S. Ramon Llull</strong> - Palma, Spain</br>
+                    </div>
+                </div>
+            </div>
+            <div class="about-publications">
+                <h2>
+                    Publications
+                </h2>
                 <ul>
-                    <li>
-                        A systems-biology view of alternative splicing to treat cancer.
-                    </li>
-                    <li>
-                        Software development for omic data analysis.
-                    </li>
-                </ul>
-            </p>
-            <p>
-                <br><strong>ETH Zürich</strong>, MSc semester projects and thesis</br>
-                <br>09.2017 - 09.2019</br>
-                <br><strong>Christen Group - Synthetic Genomics</strong></br>
-                <ul>
-                    <li>
-                        Engineering CRISPR/Cas9 for multiplexed genome editing.
-                    </li>
-                </ul>
-                <br><strong>Sauer/Zampieri Group - Metabolomics</strong></br>
-                <ul>
-                    <li>
-                        Computational inference of antimicrobial mode-of-action through comparative metabolomics.
-                    </li>
-                </ul>
-            </p>
-            <p>
-                <br><strong>University of Barcelona</strong>, BSc Thesis</br>
-                <br>09.2016 - 07.2017</br>
-                <br><strong>Grifoll Group - Biodegradation and Bioremediation</strong></br>
-                <ul>
-                    <li>
-                        Discovery of new bacterial communities that degrade creosote compounds.
-                    </li>
-                </ul>
-            </p>
-            <p>
-                <br><strong>University Zürich</strong>, BUSS Summer REsearch Scholarship</br>
-                <br>07.2016 - 08.2016</br>
-                <br><strong>Bodenmiller Group - Single-cell Systems Biology of Cancer</strong></br>
-                <ul>
-                    <li>
-                        Genetic engineering to study metastasis in breast cancer through single-cell proteomics.
-                    </li>
-                </ul>
-            </p>
-
-            <h3>
-                Industry
-            </h3>
-            <p>
-                <br><strong>Genome Informatics - Bioinformatician</strong></br>
-                <br><strong>Functional Genomics Center Zürich</strong></br>
-                <br>12.2019 - 05.2020</br>
-                On-demand data analysis and development of bioinformatics open-source packages.
-            </p>
-
-            <p>
-                <br><strong>Corporate Regulatory Affairs - Data Management</strong></br>
-                <br><strong>Helsinn Healthcare S.A.</strong></br>
-                <br>09.2018 - 02.2019</br>
-                Supporting the Regulatory Affairs department in data management of (pre)clinical documentation creating tailored software.
-            </p>
-        </section>
-
-        <section>
-            <h2>
-                EDUCATION
-            </h2>
-            <p>
-                <p>
-                    09.2020 - 09.2024
-                </p>
-                <p>
-                    <br><strong>PhD Biomedicine</strong></br>
-                    <br><strong>Centre for Genomic Regulation (CRG)</strong></br>
-                    <br><strong>Pompeu Fabra University</strong> - Barcelona, Spain</br>
-                    <br>Supervision: Luis Serrano</br>
-                    <br>CRG PhD Fellowship</br>
-                </p>
-            </p>
-            <p>
-                <p>
-                    09.2017 - 06.2020
-                </p>
-                <p>
-                    <br><strong>Biology MSc with a major in Systems Biology</strong> (90 ECTS)</br>
-                    <br><strong>ETH Zürich</strong> - Zürich, Switzerland</br>
-                </p>
-            </p>
-            <p>
-                <p>
-                    09.2013 - 09.2017
-                </p>
-                <p>
-                    <br><strong>Biotechnology BSc with a minor in Molecular Biotechnology</strong> (240 ECTS)</br>
-                    <br><strong>University of Barcelona</strong> - Barcelona, Spain</br>
-                </p>
-            </p>
-            <p>
-                <p>
-                    09.2011 - 06.2013
-                </p>
-                <p>
-                    <br><strong>Baccalaureate of Science</strong></br>
-                    <br><strong>I.E.S. Ramon Llull</strong> - Palma, Spain</br>
-                </p>
-            </p>
-        </section>
-
-        <section>
-            <h2>
-                PUBLICATIONS
-            </h2>
-            <p>
-               <ul>
                     <li>
                         <strong>Anglada-Girotto M.</strong> et al., “Combining CRISPRi and metabolomics for functional annotation of compound libraries”, <i>Nat. Chem. Biol.</i> (2022) <a href="https://doi.org/10.1038/s41589-022-00970-3">(Publication)</a>
                     </li>
                     <li>
-                        <strong>Anglada-Girotto M.</strong> et. al. “robustica: customizable robust independent component analysis”, BMC Bioinformatics (Accepted) <a href="https://doi.org/10.1101/2021.12.10.471891">(Preprint)</a>
+                        <strong>Anglada-Girotto M.</strong> et. al. “robustica: customizable robust independent component analysis”, <i>BMC Bioinformatics</i> (2022) (Accepted) <a href="https://doi.org/10.1101/2021.12.10.471891">(Preprint)</a>
                     </li>
                     <li>
                         Bennisty H., Hernandez-Alias X., Weber M., <strong>Anglada-Girotto M.</strong>, et al. “Evolutionary conservation of A/T-ending codons reflects co-regulation of expression and complex formation” (Under Review) <a href="https://doi.org/10.1101/2022.01.17.475622">(Preprint)</a>
                     </li>
-               </ul> 
-            </p>
-        </section>
-
-        <section>
-            <h2>
-                CONFERENCES
-            </h2>
-            <p>
-               <ul>
+                </ul>
+            </div>
+            <div class="about-conferences">
+                <h2>
+                    Conferences
+                </h2>
+                <ul>
                     <li>
-                        Oral Presentation
+                        Oral Presentation(s)
                         <ul>
                             <li>
                                 CompSysBio2021: Advanced Lecture Course on Computational Systems Biology (Aussois, France)
@@ -244,7 +331,7 @@
                     </li>
 
                     <li>
-                        Poster
+                        Poster(s)
                         <ul>
                             <li>
                                 VIII Bioinformatics Students Symposium 2021 (Madrid, Spain)  
@@ -256,130 +343,135 @@
                                 RECOMB 2022 (San Diego, US) 
                             </li>
                             <li>
-                                RNA Society Meeting (Boulder, US) 
+                                RNA Society Meeting 2022 (Boulder, US) 
                             </li>
                         </ul>
                     </li>
-               </ul> 
-            </p>
-        </section>
-
-        <section>
-            <h2>
-                TECHNICAL SKILLS
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        Analysis
+                </ul> 
+            </div>
+            <div class="about-footer">
+                <div class="about-footer-left">
+                    <div class="about-skills">
+                        <h2>
+                            Technical Skills
+                        </h2>
                         <ul>
                             <li>
-                                ODE modeling
+                                Analysis
+                                <ul>
+                                    <li>
+                                        ODE modeling
+                                    </li>
+                                    <li>
+                                        Flux Balance Analysis
+                                    </li>
+                                    <li>
+                                        Machine Learning Algorithms
+                                    </li>
+                                    <li>
+                                        Omics data analysis
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                Flux Balance Analysis
+                                Programming
+                                <ul>
+                                    <li>
+                                        <i>Languages</i>: Python, R, Matlab, shell scripting
+                                    </li>
+                                    <li>
+                                        <i>Tools</i>: Git, Jupyter, Conda, Snakemake, Docker, Sun Grid Engine
+                                    </li>
+                                </ul>
                             </li>
                             <li>
-                                Machine Learning Algorithms
-                            </li>
-                            <li>
-                                Omics data analysis
+                                Experimental Biology
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        Programming
+                    </div>
+                </div>
+                <div class="about-footer-right">
+                    <div class="about-science_communication">
+                        <h2>
+                            Science Communication
+                        </h2>
                         <ul>
                             <li>
-                                <i>Languages</i>: Python, R, Matlab, shell scripting
+                                <strong>Courses</strong>
                             </li>
+                            <ul>
+                                <li>
+                                    <a href="https://miqg.github.io/practical_tools_for_quick_data_visualization/README.html">Data visualization with R</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/IvoLeist/ml_cnag-crg_course">Introduction to Machine Learning</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/hexavier/python_course">Introduction to Python</a>
+                                </li>
+                            </ul>
                             <li>
-                                <i>Tools</i>: Git, Jupyter, Conda, Snakemake, Docker, Sun Grid Engine
+                                <a href="https://medium.com/@miquelangladagirotto">
+                                <strong>Data science blog</strong>
+                                </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        Experimental Biology
-                    </li>
-                </ul>
-
-            </p>
-
-            <h2>
-                SCIENCE COMMUNICATION
-            </h2>
-            <p>
-                <ul>
-                    Courses:
-                    <ul>
-                        <li>
-                            <a href="https://miqg.github.io/practical_tools_for_quick_data_visualization/README.html">Data visualization with R</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/IvoLeist/ml_cnag-crg_course">Introduction to Machine Learning</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/hexavier/python_course">Introduction to Python</a>
-                        </li>
-                    </ul>
-                    <a href="https://medium.com/@miquelangladagirotto">Data science blog</a>
-                </ul>
-            </p>
-
-            <h2>
-                OTHER INTERESTS
-            </h2>
-            <p>
-                <ul>
-                    <li>
-                        Dancer in a company and a part-time dance teacher for 10+ years: <a href="https://www.youtube.com/c/miquelangladagirotto">Youtube Channel</a>
-                    </li>
-                    <li>
-                        Open source: <a href="https://github.com/MiqG/">GitHub</a>
-                    </li>
-                    <li>
-                        Travelling and meeting other cultures
-                    </li>
-                    <li>
-                        Music production and phylosophy
-                    </li>
-                </ul>
-            </p>
+                    </div>
+                    <div class="about-other_interests">
+                        <h2>
+                            Other Interests
+                        </h2>
+                        <ul>
+                            <li>
+                                Dancer in a company and a part-time dance teacher for 10+ years: <a href="https://www.youtube.com/c/miquelangladagirotto">Youtube Channel</a>
+                            </li>
+                            <li>
+                                Open source: <a href="https://github.com/MiqG/">GitHub</a>
+                            </li>
+                            <li>
+                                Travelling and meeting other cultures
+                            </li>
+                            <li>
+                                Music production and phylosophy
+                            </li>
+                        </ul>  
+                    </div>
+                </div>
+            </div>
         </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <a href="mailto:miquelangladagirotto@gmail.com" class="footer-link">miquelangladagirotto@gmail.com</a>
-            <ul class="social-list">
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.youtube.com/c/miquelangladagirotto">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.instagram.com/m1quelag/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://twitter.com/m1quelag">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/MiqG">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://orcid.org/0000-0003-1885-8649">
-                        <i class="fab fa-orcid"></i>
-                    </a>
-                </li>
-            </ul>
-        </footer>
-
-        <script src="js/index.js"></script>
-
     </body>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="mailto:miquelangladagirotto@gmail.com" class="footer-link">miquelangladagirotto@gmail.com</a>
+        <ul class="social-list">
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://www.youtube.com/c/miquelangladagirotto">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://www.instagram.com/m1quelag/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://twitter.com/m1quelag">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com/MiqG">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://orcid.org/0000-0003-1885-8649">
+                    <i class="fab fa-orcid"></i>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="js/index.js"></script>
 </html>
