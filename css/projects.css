@@ -1,0 +1,37 @@
+/*Projects*/
+
+.projects {
+    margin-left: 10rem;
+    width: var(--content-width);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+
+.projects-title {
+    font-family: var(--ff-code);
+    font-size: var(--fs-h1); 
+    font-weight: var(--fw-bold);
+}
+
+.projects-items {}
+
+/* - Research */
+
+.projects-research {
+    justify-content: center;
+}
+
+/* - Courses */
+
+.projects-courses {
+    justify-content: center;
+}
+
+/* - Learning by Doing */
+
+.projects-lbd {
+    justify-content: center;
+}

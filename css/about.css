@@ -1,40 +1,25 @@
 /* About */
-/*  - Intro */
-.about-profile {
-
-}
-
-.about-img {
-    width: 40%;
-    max-width: 400px;
-    border-radius: 100%;
-    box-shadow: var(--bs);
-}
-
-.about-info {
-    padding: 2rem 0;
-}
-
-.about-info ul li{
-    padding: .4rem 0;
-    display: flex;
-    align-items: center;
-    color: var(--clr-dark);
-}
-
-.about-info ul li i{
-    padding-right: 1rem;
-    font-size: 1.1rem;
-}
-
 /*  - Content */
+.about-title {
+    font-family: var(--ff-code);
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+    line-height: 1.1;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;   
+}
+
 .about-content {
-    width: 80%;
-    margin:0 auto;
+    width: var(--content-width);
+    margin: -6em auto;
 }
 
 .about-summary p{
+    grid.grid-area: text;
     font-size: var(--fs-body);
+    margin: 0;
+    font-size: var(--fs-h3);
+    text-align: left;
 }
 
 .icon {

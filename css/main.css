@@ -7,10 +7,10 @@
 
 /* Properties */
 :root {
-    --ff-primary: 'Source Sans Pro', sans-serif;
-    --ff-title: 'Playfair Display', serif;
+    --ff-title: 'Montserrat', sans-serif;
     --ff-code: 'Source Code Pro', monospace;
-    --ff-tertiary: 'Abril Fatface', cursive;
+    --ff-primary: 'Source Sans Pro', sans-serif; 
+    --ff-secondary: 'Abril Fatface', cursive;
 
     --fw-reg: 300;
     --fw-bold: 900;
@@ -19,13 +19,17 @@
     --clr-dark: #153243;
     --clr-accent: #F7CA63;
 
-    --fs-h1: 3rem;
-    --fs-h2: 2.5rem;
+    --fs-h1: 3.8rem;
+    --fs-h2: 1.8rem;
     --fs-h3: 1.5rem;
     --fs-body:  1.25rem;
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
           0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
+    --footer-height: 10rem;
+
+    --content-width: 75%;
 }
 
 /*
@@ -46,12 +50,15 @@ html {
 }
 
 body {
+    position: relative;
     background:  var(--clr-light);
     color:  var(--clr-dark);
     margin: 0;
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
+    min-height: 100vh;
+    padding-bottom: var(--footer-height);
 }
 
 section {
@@ -159,7 +166,18 @@ header {
 }
 
 .logo {
-    max-width: 65px;
+    font-size: 1.75rem;
+    font-family: var(--ff-code);
+    font-weight: var(--fw-bold);
+    color: var(--clr-dark);
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+.logo a:hover {
+    color: var(--clr-accent);
 }
 
 .nav {  
@@ -189,6 +207,7 @@ header {
 
 .nav__link {
     color: inherit;
+    font-family: var(--ff-code);
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
     text-decoration: none;
@@ -432,8 +451,14 @@ header {
 
 .footer {
     background: var(--clr-dark);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: var(--footer-height);
     text-align: center;
-    padding:  2.5em 0;
+    display: grid; 
+    align-items: center; 
+    justify-content: center;
 }
 
 .footer a {
@@ -441,8 +466,11 @@ header {
 }
 
 .footer__link {
+    font-family: var(--ff-code);
     font-size: var(--fs-h3);
-    font-weight: var(--fw-bold);
+    font-weight: var(--fw-regular);
+    margin-top: 1em;
+    padding: 0;
 }
 
 .footer__link:hover,
@@ -458,7 +486,7 @@ header {
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 2em 0 0;
+    margin: 0;
     padding: 0;
 }
 
