@@ -9,7 +9,7 @@
 :root {
     --ff-title: 'Montserrat', sans-serif;
     --ff-code: 'Source Code Pro', monospace;
-    --ff-primary: 'Source Sans Pro', sans-serif; 
+    --ff-primary: 'Open Sans', sans-serif; 
     --ff-secondary: 'Abril Fatface', cursive;
 
     --fw-reg: 300;
@@ -21,7 +21,7 @@
 
     --fs-h1: 3.8rem;
     --fs-h2: 1.8rem;
-    --fs-h3: 1.5rem;
+    --fs-h3: 1.65rem;
     --fs-body:  1.25rem;
 
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
@@ -113,15 +113,14 @@ h1,
 h2,
 h3 {
     line-height: 1.1;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+    margin-top: 1.25em;
+    margin-bottom: 1em;
+    font-family: var(--ff-code);
 }
 
 h1 { font-size: var(--fs-h1); }
 h2 { font-size: var(--fs-h2); }
 h3 { font-size: var(--fs-h3); }
-
-h1, h2 {font-family: var(--ff-title);}
 
 li {text-align:  left; }
 
@@ -166,7 +165,7 @@ header {
 }
 
 .logo {
-    font-size: 1.75rem;
+    font-size: 1rem;
     font-family: var(--ff-code);
     font-weight: var(--fw-bold);
     color: var(--clr-dark);
@@ -178,6 +177,10 @@ header {
 
 .logo a:hover {
     color: var(--clr-accent);
+}
+
+.logo img {
+    width: 50%;
 }
 
 .nav {  
@@ -467,7 +470,7 @@ header {
 
 .footer__link {
     font-family: var(--ff-code);
-    font-size: var(--fs-h3);
+    font-size: var(--fs-body);
     font-weight: var(--fw-regular);
     margin-top: 1em;
     padding: 0;

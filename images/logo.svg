@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="133.82051mm"
-   height="94.275032mm"
-   viewBox="0 0 133.82051 94.27503"
+   width="42.70755mm"
+   height="17.875011mm"
+   viewBox="0 0 42.70755 17.875011"
    version="1.1"
    id="svg8"
    inkscape:version="1.0.2 (1.0.2+r75+1)"
@@ -23,17 +23,18 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.40232464"
-     inkscape:cx="654.09324"
-     inkscape:cy="633.29453"
+     inkscape:zoom="5.6"
+     inkscape:cx="111.39451"
+     inkscape:cy="52.694244"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
+     lock-margins="true"
+     fit-margin-top="1"
+     fit-margin-left="1"
+     fit-margin-right="1"
+     fit-margin-bottom="1"
      inkscape:window-width="1920"
      inkscape:window-height="1025"
      inkscape:window-x="0"
@@ -47,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -55,10 +56,17 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(32.457012,-12.560759)">
-    <path
-       id="path847"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 38.202027,105.45066 C 28.84945,95.774405 16.734487,77.056136 28.135117,65.18661 40.210355,63.1246 50.880464,56.263378 46.883101,42.33722 48.55746,34.418398 46.787907,8.9283759 38.583825,27.242002 29.089763,50.742241 20.172141,74.518182 10.51237,97.973296 2.8533154,97.251183 12.51942,78.956681 12.406089,71.162969 14.744041,58.49191 21.983595,37.303242 19.945129,29.659773 12.374013,38.970611 9.0514877,51.041215 3.7541505,61.484566 c -6.9806678,12.000507 -13.418036,0.377032 -9.3591601,-8.20941 0.6690401,-11.010183 3.5050875,-30.843751 1.5900746,-36.461419 -10.278503,23.910357 -15.31974,49.651539 -23.245347,74.374845 -1.949433,7.793263 -4.503765,14.210168 -1.927233,2.570019 8.022589,-25.821644 14.190392,-52.239931 23.589891,-77.647994 8.6668687,10.575324 -1.1568838,25.268367 1.0010751,37.628536 -2.5300683,6.605732 1.7449652,19.166783 6.7616461,7.05424 C 8.199179,50.392123 11.312108,36.834442 19.919404,28.892446 24.67585,42.073525 13.165445,62.387091 11.957376,78.246697 10.090216,84.076856 5.7629847,106.59901 12.678233,90.064916 22.458892,65.910451 30.710172,41.09754 42.229647,17.67715 c 13.387766,5.679567 2.20914,24.426504 5.293447,35.362444 7.920939,9.330518 10.520279,-15.47488 19.603665,-17.685616 7.634328,-9.699716 29.197076,-7.28699 18.402644,7.62935 C 78.618139,55.336663 62.574332,53.04374 52.720897,60.839104 44.918996,72.612899 49.445603,90.121488 61.071243,97.821707 73.661418,108.53558 87.198786,94.893941 94.564675,85.154353 107.35696,70.552464 80.631993,71.784022 81.485262,71.083791 93.402163,64.684843 106.24516,80.031503 92.801624,87.824321 85.72116,99.998958 69.163034,109.67797 57.751133,96.42727 45.575591,88.122623 48.237366,71.898528 49.35735,61.185529 c -7.443452,11.180656 -1.273552,27.605413 -7.282078,40.239451 -1.002153,1.78643 -1.192397,4.56417 -3.873245,4.02568 z m 2.26545,-1.0333 c 1.787838,-12.910733 8.756546,-33.090351 2.136349,-42.223655 -13.797672,-2.119093 -23.535163,13.273182 -15.15795,24.698958 2.488341,6.84448 5.904029,14.450407 13.021601,17.524697 z M 58.39953,56.195992 c 11.18666,-1.853491 33.765804,-10.886998 26.431155,-24.560584 -13.719963,-4.0029 -25.857942,11.54265 -30.333664,23.20242 -1.483197,2.879685 2.854659,2.985574 3.902509,1.358164 z" />
+     transform="translate(-82.529855,-95.569211)">
+    <text
+       xml:space="preserve"
+       style="font-size:17.6389px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583;stroke:none;stroke-opacity:1;fill:#153243;fill-opacity:1;"
+       x="82.065826"
+       y="108.82825"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="82.065826"
+         y="108.82825"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.6389px;font-family:'Tlwg Typewriter';-inkscape-font-specification:'Tlwg Typewriter';stroke-width:0.264583;stroke:none;stroke-opacity:1;fill:#153243;fill-opacity:1;">/mag</tspan></text>
   </g>
 </svg>

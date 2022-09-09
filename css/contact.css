@@ -1,6 +1,6 @@
 .contact-info {
-    grid-area: text;
-    padding: 2rem 0;
+    width: var(--content-width);
+    margin: 6em auto;
 }
 
 .contact-info ul li{
@@ -13,4 +13,8 @@
 .contact-info ul li i{
     padding-right: 1rem;
     font-size: 1.1rem;
+}
+
+.contact-info .nav__link {
+    font-size: var(--fs-h3);
 }
