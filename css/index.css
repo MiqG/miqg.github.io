@@ -74,3 +74,48 @@
 .home-button__link:hover {
     color: var(--clr-accent);
 }
+
+/* Responsiveness */
+@media (max-width: 1900px) {
+    .home-profile {
+        width: var(--content-width);
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-areas:
+            "title"
+            "subtitle"
+            "img"
+            "text";
+        justify-content: center;
+    }
+
+    .home-title {
+        font-family: var(--ff-code);
+        font-size: var(--fs-h1);
+        grid-area: title;
+        margin-top: 0;
+        margin-bottom: 0.1em;
+        align-content: center;
+    }
+
+    .home-subtitle {
+        grid-area: subtitle;
+        font-family: var(--ff-code);
+        font-size: var(--fs-h2);
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 0.5em;
+    }
+
+    .home-buttons {
+        margin-top: 0;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 75%;
+        justify-content: center;
+    }
+}
+
+

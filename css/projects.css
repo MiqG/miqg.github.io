@@ -36,3 +36,18 @@
 .projects-lbd {
     justify-content: center;
 }
+
+/* Responsiveness */
+@media (max-width: 1900px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 0;
+    }
+    
+    .projects {
+        margin-left: 2rem;
+        width: var(--content-width);
+        justify-content: center;
+    }
+}

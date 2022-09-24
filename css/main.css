@@ -32,17 +32,6 @@
     --content-width: 75%;
 }
 
-/*
-@media (min-width: 1000px) {
-    :root {
-        --fs-h1: 4.5rem;
-        --fs-h2: 3.75rem;
-        --fs-h3:  1.5rem;
-        --fs-body: 1.12rem;
-    }
-}
-*/
-
 /* General styles */
 
 html {
@@ -158,6 +147,8 @@ li {text-align:  left; }
 
 /* Header */
 
+.icon { width: 100%; }
+
 header {
     display: flex;
     justify-content: space-between;
@@ -180,7 +171,7 @@ header {
 }
 
 .logo img {
-    width: 50%;
+    width: 15%;
 }
 
 .nav {  
@@ -514,4 +505,19 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+/*Responsiveness*/
+@media (max-width: 1900px) {
+    :root {
+        --content-width: 90%;
+        --fs-h1: 3rem;
+        /*
+
+        --fs-h2: 3.75rem;
+        --fs-h3:  1.5rem;
+        --fs-body: 1.12rem;
+        */
+    }
 }
